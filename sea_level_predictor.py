@@ -11,6 +11,9 @@ def draw_plot():
     print(data.shape)
 
     # Create scatter plot
+    year = data['Year']
+    sea_level = data['CSIRO Adjusted Sea Level']
+    plt.scatter(year, sea_level)
 
 
     # Create first line of best fit
