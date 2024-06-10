@@ -29,7 +29,24 @@ def draw_plot():
     plt.plot(x, y)
 
     # Create second line of best fit
+    trunc_data = data[data['Year'] >= 2000]
+    trunc_year = trunc_data['Year']
+    trunc_sea_level = trunc_data['CSIRO Adjusted Sea Level']
+    
+    line_two = linregress(trunc_year, trunc_sea_level)
+    slope = line_two.slope
+    intercept = line_two.intercept
 
+    left_x = 2000
+    left_y = slope * left_x + intercept
+
+    right_x = 2050
+    right_y = slope * right_x + intercept
+
+    x = [left_x,right_x]
+    y = [left_y,right_y]
+
+    plt.plot(x, y)
 
     # Add labels and title
     plt.xlabel('Year')
