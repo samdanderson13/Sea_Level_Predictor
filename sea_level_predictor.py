@@ -13,8 +13,20 @@ def draw_plot():
     plt.scatter(year, sea_level)
 
     # Create first line of best fit
-    '''line_one = linregress(year, sea_level)
-    print(line_one)'''
+    line_one = linregress(year, sea_level)
+    slope = line_one.slope
+    intercept = line_one.intercept
+
+    left_x = data['Year'][0]
+    left_y = slope * left_x + intercept
+
+    right_x = 2050
+    right_y = slope * right_x + intercept
+
+    x = [left_x,right_x]
+    y = [left_y,right_y]
+
+    plt.plot(x, y)
 
     # Create second line of best fit
 
