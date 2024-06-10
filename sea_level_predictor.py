@@ -35,13 +35,10 @@ def draw_plot():
     intercept = line_two.intercept
 
     left_x = 2000
-    left_y = (slope * left_x) + intercept
-
     right_x = 2050
-    right_y = (slope * right_x) + intercept
 
-    x = [left_x,right_x]
-    y = [left_y,right_y]
+    x = pd.Series(range(left_x, right_x+1))
+    y = (slope * x) + intercept
 
     plt.plot(x, y)
 
