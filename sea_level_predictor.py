@@ -6,18 +6,15 @@ def draw_plot():
     # Read data from file
     data = pd.read_csv('epa-sea-level.csv')
     data = data.drop(columns=['NOAA Adjusted Sea Level'])
-    print(data.head())
-    print(data.dtypes)
-    print(data.shape)
 
     # Create scatter plot
     year = data['Year']
     sea_level = data['CSIRO Adjusted Sea Level']
     plt.scatter(year, sea_level)
 
-
     # Create first line of best fit
-
+    '''line_one = linregress(year, sea_level)
+    print(line_one)'''
 
     # Create second line of best fit
 
